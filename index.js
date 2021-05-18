@@ -10,7 +10,14 @@ const puppeteer= require('puppeteer');
 
         var k=document.querySelector('#block-views-block-view-noticia-pbh-block-5 > div > div > div > div > div > div.views-field.views-field-nothing > span').childNodes;
         let  PublicationDate = k[0].innerText;
-        return PublicationDate;
+        let BiddingDate = k[18].innerText;
+        let Object = k[5].innerText;
+
+        return{
+            PublicationDate,
+            BiddingDate,
+            Object
+        }
     });
     console.log(data);
 

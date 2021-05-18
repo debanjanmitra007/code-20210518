@@ -12,11 +12,13 @@ const puppeteer= require('puppeteer');
         let  PublicationDate = k[0].innerText;
         let BiddingDate = k[18].innerText;
         let Object = k[5].innerText;
+        let links=document.querySelector('td:nth-child(2) > div > div > div > a').href;
 
         return{
             PublicationDate,
             BiddingDate,
-            Object
+            Object,
+            links
         }
     });
     console.log(data);

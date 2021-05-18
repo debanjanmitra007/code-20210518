@@ -6,6 +6,13 @@ const puppeteer= require('puppeteer');
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await page.goto(contractUrl, { waitUntil :'load', timeout: 0});
-  
+    let data =  await page.evaluate(() =>{
+
+        var k=document.querySelector('#block-views-block-view-noticia-pbh-block-5 > div > div > div > div > div > div.views-field.views-field-nothing > span').childNodes;
+        let  PublicationDate = k[0].innerText;
+        return PublicationDate;
+    });
+    console.log(data);
+
     await browser.close();
 })();
